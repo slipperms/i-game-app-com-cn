@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://slipperms.github.io/i-game-app-com-cn/sitemap.xml
