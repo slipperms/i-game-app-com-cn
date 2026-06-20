@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>B体育 · 使用说明与信息中心</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce0c0 0%, #fce3b3 30%, #f7d9a0 70%, #f3d08c 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2.5rem 1rem 4rem;
+      color: #2f2e2b;
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* 卡片风格统一 */
+    .card {
+      background: rgba(255, 255, 245, 0.88);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 2rem 2rem 2.4rem;
+      box-shadow: 0 12px 30px rgba(100, 60, 30, 0.10), 0 4px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(246, 228, 200, 0.6);
+      transition: box-shadow 0.15s;
+      margin-bottom: 1.8rem;
+    }
+
+    .card-soft {
+      background: rgba(255, 250, 240, 0.7);
+      border: 1px solid rgba(230, 200, 165, 0.35);
+      backdrop-filter: blur(1px);
+    }
+
+    /* 目录感布局 —— 网格 + 标注 */
+    .grid-directory {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .directory-item {
+      background: #fffbf3;
+      border-radius: 20px;
+      padding: 0.9rem 1.2rem;
+      border: 1px solid #ecdcc4;
+      font-size: 0.95rem;
+      transition: all 0.1s;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .directory-item .code {
+      font-weight: 500;
+      color: #9b7e5a;
+      letter-spacing: 0.5px;
+      font-size: 0.8rem;
+      min-width: 1.6rem;
+    }
+
+    .directory-item a {
+      color: #b35f2b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #dbaa7a;
+    }
+
+    .directory-item a:hover {
+      color: #904a1e;
+      border-bottom: 1px solid #904a1e;
+    }
+
+    /* 圆角按钮感链接 */
+    .btn-link {
+      display: inline-block;
+      background: #f5e2cc;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      color: #4f3f2e;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #dfc7aa;
+      transition: background 0.12s, border-color 0.12s;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .btn-link:hover {
+      background: #e9d1b2;
+      border-color: #c7a77b;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 550;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.3rem;
+      color: #422f1f;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 540;
+      color: #4d3925;
+      margin: 1.6rem 0 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::before {
+      content: "▹";
+      color: #b8864b;
+      font-weight: 300;
+      font-size: 1.1rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #5f4a32;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #6a553b;
+      max-width: 75%;
+      margin-top: 0.2rem;
+    }
+
+    .tagline-light {
+      background: rgba(200, 170, 140, 0.2);
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.3px;
+      color: #6f5d45;
+      display: inline-block;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.6rem;
+      margin: 1rem 0 0.2rem;
+      padding-left: 0.4rem;
+    }
+
+    .feature-list li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #3f3529;
+    }
+
+    .feature-list li::before {
+      content: "·";
+      font-size: 1.8rem;
+      color: #b47b47;
+      line-height: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eedbc8;
+      padding: 0.75rem 0 0.5rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #523d27;
+    }
+
+    .faq-a {
+      color: #5f4e3a;
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+
+    .info-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed #ddc8ae;
+      margin-top: 1.6rem;
+      padding-top: 1.2rem;
+      font-size: 0.88rem;
+      color: #67543d;
+    }
+
+    .tag-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    .tag {
+      background: #ecdcbf;
+      padding: 0.2rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: #3f3221;
+      font-weight: 450;
+      letter-spacing: 0.2px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e5d3ba;
+      margin: 1.8rem 0 1.2rem;
+      opacity: 0.6;
+    }
+
+    .link-note {
+      background: #fff7eb;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      border-left: 5px solid #b8864b;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.5rem 0.8rem 3rem;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      .hero-sub {
+        max-width: 100%;
+      }
+      .grid-directory {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+
+    <!-- Hero 区：说明 + 稳定入口提示 -->
+    <div class="card">
+      <span class="tagline-light">📋 使用指南 · 信息索引</span>
+      <h1>B体育 · 知识库入口</h1>
+      <p class="hero-sub">了解平台定位、服务边界与常用路径，快速获取你需要的内容。</p>
+      <div style="margin-top: 1.2rem;">
+        <p style="margin-bottom: 0.5rem;">本页面作为结构化说明页，汇总有关 <a href="https://officials-bsports.com" style="font-weight: 550; color:#a35727; text-decoration: underline 1px dashed #b57c48; text-underline-offset: 3px;">B体育</a> 的基本信息、使用场景与常见疑问。如果你希望直接进入服务主界面，以下为直达链接：</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1rem 0 0.2rem;">
+          <a href="https://officials-bsports.com" class="btn-link">B体育</a>
+          <span style="font-size: 0.85rem; color: #67543d;">（建议使用现代浏览器，关闭广告拦截插件以获取最佳体验）</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 目录网格：功能入口说明区 （知识库目录感）-->
+    <div class="card card-soft">
+      <h2>内容目录 / 模块索引</h2>
+      <p style="margin-bottom: 0.2rem;">以下为平台内主要信息板块，点击可直接跳转到对应说明或服务片段（当前页面为静态示例，条目仅示意结构）</p>
+      <div class="grid-directory">
+        <div class="directory-item"><span class="code">01</span><a href="#platform-intro" style="cursor: default;">平台概述</a></div>
+        <div class="directory-item"><span class="code">02</span><a href="#scenario" style="cursor: default;">适用场景</a></div>
+        <div class="directory-item"><span class="code">03</span><a href="#faq-summary" style="cursor: default;">常见问题摘要</a></div>
+        <div class="directory-item"><span class="code">04</span><a href="#related-tags" style="cursor: default;">相关信息区</a></div>
+        <div class="directory-item"><span class="code">05</span><a href="https://officials-bsports.com" style="border-bottom: 1px solid #b8864b;">B体育</a></div>
+        <div class="directory-item"><span class="code">06</span>资料库 · 更新中</div>
+      </div>
+      <p style="font-size: 0.85rem; margin-top: 0.8rem; color:#5d4b34;"><span style="background:#fef3e6; padding:0 0.5rem;">💡 提示</span> 所有索引链接均指向同一平台入口或预留信息区块，便于快速定位。</p>
+    </div>
+
+    <!-- 说明区：平台特点 + 使用建议 -->
+    <div class="card" id="platform-intro">
+      <h2>服务特点与说明</h2>
+      <p><a href="https://officials-bsports.com" style="color:#a35727; font-weight:500;">B体育</a> 是一个以体育信息聚合、数据呈现及用户互动为核心的服务平台，当前版本重点提供以下方向：</p>
+      <ul class="feature-list">
+        <li>赛事资讯与动态摘要</li>
+        <li>多维度数据浏览界面</li>
+        <li>基础社区互动与反馈入口</li>
+        <li>移动端适配轻量视图</li>
+        <li>持续迭代的功能模块</li>
+      </ul>
+      <div class="link-note">
+        <strong>📌 稳定入口建议</strong> 推荐将 <a href="https://officials-bsports.com" style="font-weight: 550; color:#904a1e; text-decoration: underline 1px dotted #b57c48;">B体育</a> 添加至浏览器书签栏，避免通过第三方搜索跳转。如遇到访问波动，可尝试清除缓存或更换网络环境。
+      </div>
+    </div>
+
+    <!-- 场景区 + 提示区 合并卡片 -->
+    <div class="card card-soft" id="scenario">
+      <h2>典型使用场景</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 0.6rem;">
+        <div style="flex: 1; min-width: 180px;">
+          <h3>📱 移动端快速浏览</h3>
+          <p style="font-size:0.95rem;">通过浏览器直接访问 <a href="https://officials-bsports.com">B体育</a>，页面自适应布局适合手机与平板。建议开启桌面版网站以获取完整视图。</p>
+        </div>
+        <div style="flex: 1; min-width: 180px;">
+          <h3>💻 信息查阅与比较</h3>
+          <p style="font-size:0.95rem;">利用平台提供的数据分类，配合外部统计工具进行交叉分析。所有公开数据仅供参考，请以官方实时发布为准。</p>
+        </div>
+      </div>
+      <div style="margin-top: 1.2rem; background: #f6ede2; padding: 0.8rem 1.2rem; border-radius: 18px;">
+        <span style="font-weight: 500;">⚠️ 提示区</span> 平台不提供任何形式的投资建议或赛果预测，请理性使用信息，遵守所在地法律法规。
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 + 相关信息区 -->
+    <div class="card" id="faq-summary">
+      <h2>常见问题摘要</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q: 如何确认我访问的是否为最新版本？</div>
+        <div class="faq-a">直接通过 <a href="https://officials-bsports.com">B体育</a> 进入，页面底部通常显示版本编号或更新日期。建议定期清理浏览器缓存避免样式错乱。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 页面加载异常或出现布局偏移怎么办？</div>
+        <div class="faq-a">尝试关闭浏览器扩展（尤其是广告过滤类），或使用隐私窗口重新加载。同时检查网络是否限制特定端口。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 平台是否收集个人数据？</div>
+        <div class="faq-a">详细数据使用说明请查阅服务页面中的隐私相关条款。本说明页仅做知识索引，不代行法律声明。</div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #5c4934;"><span style="background: #eedcc5; padding: 0 0.4rem;">📎 更多 FAQ</span> 可尝试在平台内使用帮助 / 反馈入口。</p>
+    </div>
+
+    <!-- 相关信息区：标签 + 链接 + 补充 -->
+    <div class="card card-soft" id="related-tags">
+      <h2>相关信息区</h2>
+      <p style="margin-top: -0.2rem;">以下标签与入口辅助你快速了解平台周边内容（部分为示意标签）</p>
+      <div class="tag-cluster">
+        <span class="tag">体育数据</span>
+        <span class="tag">移动适配</span>
+        <span class="tag">社区动态</span>
+        <span class="tag">帮助中心</span>
+        <span class="tag">版本更新</span>
+        <span class="tag">使用说明</span>
+        <span class="tag">隐私设置</span>
+      </div>
+      <div class="info-meta">
+        <span>📌 推荐入口：<a href="https://officials-bsports.com" style="font-weight:500; color:#a35727;">B体育</a></span>
+        <span style="font-size:0.8rem;">更新参考 · 2025</span>
+      </div>
+      <hr>
+      <p style="font-size: 0.88rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span>🔗 稳定性说明</span> 
+        <span>本页为纯介绍页，所有功能入口均指向同一地址。如遇服务调整，请以平台实际展示为准。</span>
+      </p>
+    </div>
+
+    <!-- 底部安静提示 -->
+    <div style="text-align: center; font-size: 0.8rem; color: #6f5d45; padding-top: 1rem; border-top: 1px solid #dac2a4; margin-top: 0.5rem;">
+      <span>信息入口 · <a href="https://officials-bsports.com" style="color:#7a5e3e; text-decoration: underline 1px dotted #b88855;">B体育</a>  &nbsp;|&nbsp; 页面仅供内容展示  </span>
+    </div>
+  </div>
+</body>
+</html>
