@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>持续关注 · JRS直播笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f3ed;
+      font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+      color: #2b2b2b;
+      line-height: 1.8;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .article-card {
+      max-width: 760px;
+      width: 100%;
+      background: #fffcf9;
+      padding: 2.6rem 2.2rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s ease;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      border-left: 5px solid #b59875;
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+      color: #1f1f1f;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #6b5e4f;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e2d7cb;
+      font-style: italic;
+      letter-spacing: 0.02em;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      background: #f3ede6;
+      padding: 1.2rem 1.6rem;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+      color: #2e2a24;
+    }
+
+    .section-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin: 2rem 0 0.8rem 0;
+      color: #3b352b;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      word-break: break-word;
+    }
+
+    .pull-quote {
+      background: #f9f4ed;
+      border-left: 4px solid #b59875;
+      padding: 1rem 1.5rem;
+      margin: 1.8rem 0;
+      font-size: 1.05rem;
+      color: #3e3a32;
+      border-radius: 0 12px 12px 0;
+      quotes: "“" "”" "‘" "’";
+    }
+
+    .pull-quote::before {
+      content: open-quote;
+      font-size: 2.2rem;
+      line-height: 0;
+      vertical-align: -0.4em;
+      color: #b59875;
+      margin-right: 0.2rem;
+    }
+
+    .pull-quote::after {
+      content: close-quote;
+      font-size: 2.2rem;
+      line-height: 0;
+      vertical-align: -0.3em;
+      color: #b59875;
+      margin-left: 0.1rem;
+    }
+
+    .callout {
+      background: #efe9df;
+      padding: 1rem 1.5rem;
+      border-radius: 16px;
+      margin: 2rem 0 1.5rem;
+      font-size: 0.98rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
+    }
+
+    .callout-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .faq-mini {
+      margin-top: 2.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px dashed #d6cbbc;
+    }
+
+    .faq-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #3e352b;
+    }
+
+    .faq-a {
+      padding-left: 1.2rem;
+      color: #4a423a;
+    }
+
+    a {
+      color: #8a6f4b;
+      text-decoration: none;
+      border-bottom: 1px dotted #b59875;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #5e4a33;
+      border-bottom: 2px solid #5e4a33;
+    }
+
+    .footer-note {
+      margin-top: 2.8rem;
+      font-size: 0.9rem;
+      color: #7f7264;
+      text-align: center;
+      border-top: 1px solid #e2d7cb;
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .article-card {
+        padding: 1.6rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.6rem;
+        padding-left: 0.6rem;
+      }
+      .intro {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="article-card">
+    <h1>再次打开，不必从头开始</h1>
+    <div class="subhead">关于收藏、回访与持续关注的笔记</div>
+
+    <div class="intro">
+      一个稳定的直播入口，值得你记在书签栏。每次回来，界面依旧干净，延迟依旧很低——这正是我把 <a href="https://mobi-jrs.com">JRS直播</a> 留在浏览器收藏夹的原因。
+    </div>
+
+    <p>
+      大约半年前，朋友推荐了一个移动端直播站点。最初只是随手试了试，后来发现它几乎没有广告弹窗，画质选项也直接。几周后，我把链接存进了书签文件夹，命名为“常用直播”。如今每次打开手机浏览器，点开那个书签，不必重新搜索、不必验证新域名——这就是收藏的价值。
+    </p>
+
+    <p>
+      很多直播类网站设计复杂，首屏堆满横幅和浮层。而 <a href="https://mobi-jrs.com">JRS直播</a> 的首页秉持克制：赛事列表清晰，字体大小适配手持设备，夜间观看也有深色模式。这种稳定的体验一旦适应，就不太想换别的平台了。持续关注，更多是出于习惯与信任。
+    </p>
+
+    <div class="section-title">收藏夹里的常客</div>
+
+    <p>
+      我习惯把网址收藏在浏览器书签栏的二级菜单，分类为“体育”。几个月下来，每次点击进去，加载速度令人放心。没有突然跳转的第三方页面，也没有强制下载 App 的提示。对于只想在网页端快速看一场比赛的用户来说，这本身就是稀缺品质。
+    </p>
+
+    <p>
+      直播最怕突然卡顿或源失效。使用期间，我留意到页面底部偶尔会有维护公告或线路切换提示，透明且及时。这种运营方式让人觉得可靠，也因此更愿意将它保留在常访名单上。
+    </p>
+
+    <div class="pull-quote">
+      一个低频但长期使用的工具，最好的状态就是：需要的时候，它还在，且和上次一样好用。
+    </div>
+
+    <p>
+      从使用场景看，工作日午休、通勤路上、周末晚间，打开书签即可进入。没有登录流程，没有会员弹窗，所见即所得。对于只关注核心功能的人来说，这种“用完即走”的轻盈感反而提升了粘性。
+    </p>
+
+    <div class="callout">
+      <span class="callout-icon">📌</span>
+      <span><strong>实用提示：</strong> 建议将 <a href="https://mobi-jrs.com">JRS直播</a> 添加到手机主屏幕（iOS Safari / 安卓 Chrome 均支持），下次打开就像原生应用一样快捷，且依然保持网页版的轻量特性。</span>
+    </div>
+
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">▎ 是否需要注册或付费？</div>
+        <div class="faq-a">目前可直接观看，无需注册，也没有强制付费环节。部分超清线路可能有限时免费提示，但基础观看体验完整。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">▎ 书签失效怎么办？</div>
+        <div class="faq-a">如果遇到无法访问，建议先检查网络环境。大多数情况下，直接再次输入 <a href="https://mobi-jrs.com">JRS直播</a> 即可到达首页，域名保持稳定。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">▎ 移动端和桌面端体验一致吗？</div>
+        <div class="faq-a">页面针对移动端做了适配，竖屏横屏均可正常观看。桌面浏览器同样可用，界面布局会适当延展。</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      收藏 · 回访 · 持续关注 —— 一个简洁入口的长期价值
+    </div>
+  </div>
+</body>
+</html>
